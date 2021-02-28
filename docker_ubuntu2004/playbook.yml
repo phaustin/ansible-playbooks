@@ -2,7 +2,7 @@
 # DO Community Playbooks: Docker
 #################################################
 ---
-- hosts: all
+- hosts: do1jov
   become: true
   vars_files:
     - vars/default.yml
@@ -36,6 +36,13 @@
       docker_image:
         name: "{{ default_container_image }}"
         source: pull
+
+    - name: Add the user 'jovyan' the group 'docker' users groups
+      ansible.builtin.user:
+        name: jovyan
+        shell: /bin/bash
+        groups: docker
+        append: yes
 
     # Creates the number of containers defined by the variable create_containers, using values from vars file
     - name: Create default containers

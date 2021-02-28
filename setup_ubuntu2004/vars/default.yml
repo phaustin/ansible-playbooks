@@ -1,0 +1,4 @@
+---
+create_user: jovyan
+copy_local_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/do1_feb27.pub') }}"
+sys_packages: [ 'curl', 'vim', 'git', 'ufw']
