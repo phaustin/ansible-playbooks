@@ -1,0 +1,10 @@
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+  - include_role:
+     name: emacs
+    vars:
+      BUILD_FROM_SRC: false
+  become: true

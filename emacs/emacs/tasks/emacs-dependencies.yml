@@ -1,0 +1,7 @@
+---
+
+- name: Installing dependencies
+  apt:
+    name: ['build-essential', 'ncurses-dev', 'git', 'aspell-en']
+    state: present
+    update_cache: yes
