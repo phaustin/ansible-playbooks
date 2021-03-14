@@ -14,4 +14,7 @@ do:
 dojov:
   hosts:
     do1jov
+j2jov:
+  hosts:
+    j2jov
     

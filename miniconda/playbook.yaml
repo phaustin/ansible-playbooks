@@ -9,31 +9,27 @@
           checksum: sha256:91d5aa5f732b5e02002a371196a2607f839bab166970ea06e6ecc602cb446848
           mode: 0550
       - name: Create conda folder
-        become: True
         file:
-          path: /opt/miniconda3
+          path: /home/jovyan/mini38
           state: directory
           owner: jovyan
           mode: 755
           recurse: yes
       - name: Run the installer
-        shell: /tmp/install-miniconda.sh -b -u -p /opt/miniconda3
+        shell: /tmp/install-miniconda.sh -b -u -p /home/jovyan/mini38
       - name: Remove the installer
         file:
           state: absent
           path: /tmp/install-miniconda.sh
       - name: Add miniconda bin to path
-        become: True
-        shell: echo 'export PATH=/opt/miniconda3/bin:$PATH' >> /etc/profile
+        shell: echo 'export PATH=/home/jovyan/mini38/bin:$PATH' >> /home/jovyan/.bashrc
       - name: conda - read permission for all
-        become: True
         file:
-          path: /opt/miniconda3
+          path: /home/jovyan/mini38
           mode: +r
           recurse: yes
       - name: conda - execution permission for all
-        become: True
         file:
-          path: /opt/miniconda3/bin
+          path: /home/jovyan/mini38/bin
           mode: +x
           recurse: yes

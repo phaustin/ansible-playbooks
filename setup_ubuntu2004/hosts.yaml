@@ -6,4 +6,23 @@ local:
 do:
   hosts:
     do1
-    
+    do1jov
+nx:
+  hosts:
+    n1
+    n1jov
+    n3
+    n3jov
+    n4
+    n4jov
+    n5
+    n5jov
+    n7
+    n7jov
+jx:
+  hosts:
+    j1
+    j1jov
+    j2
+    j2jov
+
