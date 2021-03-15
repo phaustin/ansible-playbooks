@@ -37,7 +37,7 @@
       user:
         name: "{{ create_user }}"
         state: present
-        groups: wheel
+        groups: wheel,docker
         append: true
         create_home: true
         shell: /bin/bash
@@ -83,7 +83,7 @@
         - { direction: 'incoming', policy: 'deny' }
         - { direction: 'outgoing', policy: 'allow' }
       notify:
-        - restart ufw
+        - Restart ufw
       tags:
         - firewall
 
