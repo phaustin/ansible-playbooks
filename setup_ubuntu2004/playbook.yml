@@ -15,10 +15,14 @@
 
 
 # Sudo Group Setup
-    - name: Make sure we have a 'wheel' group
+    - name: Make sure we have  'wheel'  and 'docker' groups
       group:
-        name: wheel
+        name: "{{ item.name }}"
         state: present
+      with_items:
+        - { name: 'docker'}
+        - { name: 'wheel' }
+        - { name: 'sudo' }
       tags:
         - addgroup
 
@@ -83,7 +87,7 @@
         - { direction: 'incoming', policy: 'deny' }
         - { direction: 'outgoing', policy: 'allow' }
       notify:
-        - Restart ufw
+        - restart ufw
       tags:
         - firewall
 
