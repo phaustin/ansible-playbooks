@@ -17,4 +17,7 @@ dojov:
 j2jov:
   hosts:
     j2jov
+n1phil:
+  hosts:
+    n1
     

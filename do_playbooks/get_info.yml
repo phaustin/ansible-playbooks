@@ -1,0 +1,29 @@
+---
+
+- hosts: do1jov
+  become: true
+  vars_files:
+    - do_vars/secrets.yml
+  vars:
+    app_path: testit
+
+  tasks:
+  # Example that prints the loopback address and gateway for each host
+    - name: do_debug
+      debug:
+        msg: 
+         - "System {{ app_path }}"
+         - "system2 {{ password }}"
+         - "token {{ oauth_token }}"
+
+    - name: Gather information about user account
+      community.digitalocean.digital_ocean_account_info:
+          oauth_token: "{{ oauth_token }}"
+      register: do_status
+    
+    - debug:
+        msg:
+          - "result {{ do_status }}"
+
+    - debug: var=do_status
+

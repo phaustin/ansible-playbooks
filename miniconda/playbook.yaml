@@ -10,26 +10,26 @@
           mode: 0550
       - name: Create conda folder
         file:
-          path: /home/jovyan/mini38
+          path: /home/phil/mini38
           state: directory
-          owner: jovyan
+          owner: phil
           mode: 755
           recurse: yes
       - name: Run the installer
-        shell: /tmp/install-miniconda.sh -b -u -p /home/jovyan/mini38
+        shell: /tmp/install-miniconda.sh -b -u -p /home/phil/mini38
       - name: Remove the installer
         file:
           state: absent
           path: /tmp/install-miniconda.sh
       - name: Add miniconda bin to path
-        shell: echo 'export PATH=/home/jovyan/mini38/bin:$PATH' >> /home/jovyan/.bashrc
+        shell: echo 'export PATH=/home/phil/mini38/bin:$PATH' >> /home/phil/.bashrc
       - name: conda - read permission for all
         file:
-          path: /home/jovyan/mini38
+          path: /home/phil/mini38
           mode: +r
           recurse: yes
       - name: conda - execution permission for all
         file:
-          path: /home/jovyan/mini38/bin
+          path: /home/phil/mini38/bin
           mode: +x
           recurse: yes
